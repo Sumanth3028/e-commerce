@@ -1,46 +1,33 @@
-import React from "react";
-import { Container, Navbar, Row, Col, Button, Card, Badge } from "react-bootstrap";
-import CardHeader from "react-bootstrap/esm/CardHeader";
-import Music from "./Music";
-import Merch from "./Merch";
-
+import { useContext } from "react";
+import { Container, Navbar, Button,NavLink} from "react-bootstrap";
+import classes from "./Header.module.css";
+import CartContext from "../../store/cart-context";
+// import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
+  const ctx = useContext(CartContext);
   return (
-    <div className="card text-centre">
-      <Navbar bg="dark" expand="lg" variant="dark" >
-        <Container fluid="lg">
-          <Row>
-            <Col>
-              <Navbar.Brand href="/">
-                <h1>Home</h1>
-              </Navbar.Brand>
-            </Col>
-            <Col>
-              <Navbar.Brand href="/">
-                <h1>Store</h1>
-              </Navbar.Brand>
-            </Col>
-            <Col>
-              <Navbar.Brand href="/">
-                <h1>About</h1>
-              </Navbar.Brand>
-            </Col>
-            <Col>
-              <Button variant="dark">
-                <h2>Cart</h2>
-                <Badge bg="secondary">0</Badge>
-              </Button>
-            </Col>
-          </Row>
+    <div>
+      <div className={classes.heading}>
+        <h1>The Generics</h1>
+      </div>
+      <Navbar expand="lg" className={classes.header} fixed="top">
+        <Container>
+          <NavLink to="/home">
+            Home
+          </NavLink>
+          <NavLink to="/store">
+            Store
+          </NavLink>
+          <NavLink  to="/about">
+            About
+          </NavLink>
+          <Button onClick={props.onOpenCart}>
+            Cart<sup>{ctx.items.length > 0?ctx.items.length:''}</sup>
+          </Button>
         </Container>
       </Navbar>
-     <Card className="shadow-lg">
-      <CardHeader className="display-2" style={{background:'grey',textAlign:'center',padding:'100px',fontFamily:'bold',color:'white'}}>The Generics</CardHeader>
-      <Music />
-      <Merch />
-      <Card.Footer className="display-1" style={{background:'#87CEEB',textAlign:'start',fontSize:'100px',fontFamily:'bold',color:'white'}}>The Generics</Card.Footer> 
-     </Card>
+      
     </div>
   );
 };

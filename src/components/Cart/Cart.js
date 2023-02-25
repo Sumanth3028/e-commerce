@@ -1,38 +1,43 @@
-import {useContext} from "react";
-import { Button, ListGroup, Modal } from "react-bootstrap";
+import Modal from "../UI/Modal";
+import CartItem from "./CartItem";
+import { CloseButton, Button } from "react-bootstrap";
+import { useContext } from "react";
 import CartContext from "../../store/cart-context";
-import CartItems from "./CartItems";
+import "./Cart.css";
 
-const Cart=(props)=>{
-  const cartCtx=useContext(CartContext)
-  const cartItems=(
-    <ListGroup>
-      {cartCtx.items.map((item)=>
-       (<CartItems
-          key={item.id}
-          id={item.id}
-          name={item.name}
-          //img={item.img}
-          price={item.price}
-          quantity={item.quantity}
-          amount={item.amount}>
+const Cart = (props) => {
+  const cartCtx = useContext(CartContext);
 
-          </CartItems>
-       )
-      )}
-    </ListGroup>
-  )
-  return(
+
+  return (
     <Modal>
-      <Modal.Header closeButton>
-         <Modal.Title style={{alignContent:'center'}}>Cart</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>{cartItems}</Modal.Body>
-      <Modal.Footer style={{alignItems:'center'}}>
-        <Button variant="primary">Purchase</Button>
-      </Modal.Footer>
+      <CloseButton onClick={props.onCloseCart} />
+      <h5 className="heading">CART</h5>
+      <div className="cartRow">
+        <span className="cartItem cartHeader cartColumn">ITEM</span>
+        <span className="cartPrice cartHeader cartColumn">PRICE</span>
+        <span className="cartQuantity cartHeader cartColumn">QUANTITY</span>
+      </div>
+      <div>
+        {cartCtx.items.map((item) => (
+          <CartItem
+            key={item._id}
+            item={item} 
+            onRemoveCart={cartCtx.removeItem}
+          />
+        ))}
+      </div>
+      <div className="cartTotal">
+        <span>
+          <span className="totalTitle">
+            <strong>Total</strong>
+          </span>
+          ₹<span>{cartCtx.totalAmount}</span>
+        </span>
+      </div>
+      <Button>Purchase</Button>
     </Modal>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

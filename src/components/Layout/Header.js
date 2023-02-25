@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Navbar, Row, Col, Button, Card } from "react-bootstrap";
+import { Container, Navbar, Row, Col, Button, Card, Badge } from "react-bootstrap";
 import CardHeader from "react-bootstrap/esm/CardHeader";
 import Music from "./Music";
 import Merch from "./Merch";
@@ -8,7 +8,7 @@ import Merch from "./Merch";
 const Header = (props) => {
   return (
     <div className="card text-centre">
-      <Navbar bg="dark" expand="lg" variant="dark"  >
+      <Navbar bg="dark" expand="lg" variant="dark" >
         <Container fluid="lg">
           <Row>
             <Col>
@@ -28,7 +28,8 @@ const Header = (props) => {
             </Col>
             <Col>
               <Button variant="dark">
-                <h3>cart</h3>
+                <h2>Cart</h2>
+                <Badge bg="secondary">0</Badge>
               </Button>
             </Col>
           </Row>

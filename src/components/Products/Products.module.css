@@ -1,0 +1,19 @@
+.product {
+    margin-left: 25rem ;
+    margin-top:5rem;
+    margin-right: 50rem;
+    width: 60%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .item {
+    border: 0.2px solid rgb(210, 164, 164);
+    border-radius: 10px;
+    padding: 2px;
+    margin: 5px;
+  }

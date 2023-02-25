@@ -19,6 +19,10 @@ const CartProvider = (props) => {
       const updatedCart = {...item, quantity: existingCartItem.quantity+1}
      
     }
+    // else
+    // {
+    //   setCartItem(item)
+    //  }
     
   }
   const removeItemHandler = (id) => {
@@ -27,7 +31,7 @@ const CartProvider = (props) => {
   };
  
   const total = cartItem.reduce(
-    (total, item) => total + item.price * item.quantity,
+    (total, item) => total + item.price *item.quantity,
     0
   );
 

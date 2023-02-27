@@ -15,7 +15,7 @@ const CartItem = (props) => {
         <button className="button">{props.item.quantity}</button>
       </Col>
       <Col className="cartQuantity cartColumn">
-        <button className="cartQuantityButton" onClick={() => props.onRemoveCart(props.item._id)}>remove</button>
+        <button className="cartQuantityButton" onClick={props.onRemoveCart}>remove</button>
       </Col>
     </Row>
   );

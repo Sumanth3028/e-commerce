@@ -8,6 +8,7 @@ import "./Cart.css";
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
+  const itemRemoveHandler=(id)=>cartCtx.removeItem(id)
 
   return (
     <Modal>
@@ -27,7 +28,7 @@ const Cart = (props) => {
             price={item.price}
             quantity={item.quantity}
             imageUrl={item.imageUrl}
-            onRemoveCart={cartCtx.removeItem}
+            onRemoveCart={itemRemoveHandler}
           />
         ))}
       </div>

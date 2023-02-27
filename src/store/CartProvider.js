@@ -6,10 +6,10 @@ const defaultCartState = {
   items: [],
   totalAmount: 0,
 };
-const CartProvider = (props) => {
+
 const addItemReducer = (state, action) => {
   if (action.type === "Add") {
-  
+    
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.quantity;
 
@@ -18,7 +18,7 @@ const addItemReducer = (state, action) => {
     );
 
     const existingCartItem = state.items[existingCartItemIndex];
-
+  
     let updatedItems;
 
     if (existingCartItem) {
@@ -37,13 +37,14 @@ const addItemReducer = (state, action) => {
     };
   }
   if (action.type === "Remove") {
-    const existingCartItemIndex = state.items.findIndex(
+    const existingCartItemIndex = state.items.filter(
       (item) => item.id === action.id
     );
 
     const existingItem = state.items[existingCartItemIndex];
-
+      
     const updatedTotalAmount = state.totalAmount - existingItem.price;
+   
     let updatedItems;
     if (existingItem.quantity === 1) {
       updatedItems = state.items.filter((item) => item.id !== action.id);
@@ -52,6 +53,7 @@ const addItemReducer = (state, action) => {
         ...existingItem,
         quantity: existingItem.quantity - 1,
       };
+     
       updatedItems = [...state.items];
       updatedItems[existingCartItemIndex] = updatedItem;
     }
@@ -64,6 +66,7 @@ const addItemReducer = (state, action) => {
   return defaultCartState;
 };
 
+const CartProvider = (props) => {
 const [cartState, dispatchCartState] = useReducer(
   addItemReducer,
   defaultCartState

@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { Container, Navbar, Button,NavLink, Badge} from "react-bootstrap";
+import { useContext,useEffect} from "react";
+import { Container, Navbar, Button, Badge} from "react-bootstrap";
 import classes from "./Header.module.css";
 import CartContext from "../../store/cart-context";
-// import { NavLink } from "react-router-dom";
+ import { NavLink, useNavigate } from "react-router-dom";
 
 const Header = (props) => {
   const ctx = useContext(CartContext);
@@ -16,13 +16,13 @@ const Header = (props) => {
       </div>
       <Navbar expand="lg" className={classes.header} fixed="top">
         <Container>
-          <NavLink to="/home">
+          <NavLink className={({isActive}) =>isActive?classes.active:undefined} to="/home">
             Home
           </NavLink>
-          <NavLink to="/store">
+          <NavLink  className={({isActive}) =>isActive?classes.active:undefined} to="/store">
             Store
           </NavLink>
-          <NavLink  to="/about">
+          <NavLink  className={({isActive}) =>isActive?classes.active:undefined} to="/about" >
             About
           </NavLink>
           <Button onClick={props.onOpenCart}>

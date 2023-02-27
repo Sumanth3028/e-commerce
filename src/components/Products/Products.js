@@ -1,10 +1,13 @@
 import { useContext } from "react";
-import { Button , } from "react-bootstrap";
-// import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import CartContext from "../../store/cart-context";
-import classes from './Products.module.css'
+import Header from "../Layout/Header";
+import Cart from "../Cart/Cart";
+import Footer from "../Layout/Footer";
+import classes from "./Products.module.css";
 
-const ProductList = (props) => {
+const Products = (props) => {
   const productsArr = [
     {
       title: "Colors",
@@ -21,7 +24,7 @@ const ProductList = (props) => {
       title: "Black and white Colors",
 
       price: 50,
-      
+
       id: 2,
 
       imageUrl:
@@ -48,20 +51,26 @@ const ProductList = (props) => {
 
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-    }
+    },
   ];
 
   const ctx = useContext(CartContext);
 
   return (
+    <div>
+      <div>
+      <Header onOpenCart={props.onOpenCart} />
+      {props.openCart && <Cart onCloseCart={props.onCloseCart} /> }
+      </div>
+      
     <div className={classes.product}>
       {productsArr.map((item, index) => {
         return (
           <div className={classes.item} key={index}>
             <p>Album {index + 1}</p>
-            
+            <Link>
               <img src={item.imageUrl} alt="productImage" />
-            
+            </Link>
 
             <p>{`₹${item.price}`}</p>
             <Button onClick={() => ctx.addItem({ ...item, quantity: 1 })}>
@@ -71,7 +80,11 @@ const ProductList = (props) => {
         );
       })}
     </div>
+    <div>
+      <Footer />
+    </div>
+    </div>
   );
 };
 
-export default ProductList;
+export default Products;

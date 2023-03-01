@@ -25,6 +25,9 @@ const Header = (props) => {
           <NavLink  className={({isActive}) =>isActive?classes.active:undefined} to="/about" >
             About
           </NavLink>
+          <NavLink  className={({isActive}) =>isActive?classes.active:undefined} to="/contact" >
+            Contact Us
+          </NavLink>
           <Button onClick={props.onOpenCart}>
             Cart<Badge>{numberOfCartItems}</Badge>
           </Button>

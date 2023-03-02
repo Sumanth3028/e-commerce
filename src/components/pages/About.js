@@ -8,7 +8,7 @@ return(
   <Fragment>
     <section className={classes.about}>
       <h2>About</h2>
-      <Header />
+      
       <div>
         <img src="https://prasadyash2411.github.io/ecom-website/img/Band Members.png" alt="image"></img>
         <p>
@@ -35,7 +35,7 @@ return(
           him? Him whom something large cisterns.
         </p>
       </div>
-      <Footer></Footer>
+     
     </section>
   </Fragment>
 )

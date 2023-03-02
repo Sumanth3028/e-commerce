@@ -59,7 +59,7 @@ const Products = (props) => {
   return (
     <div>
       <div>
-      <Header onOpenCart={props.onOpenCart} />
+      
       {props.openCart && <Cart onCloseCart={props.onCloseCart} /> }
       </div>
       
@@ -68,8 +68,8 @@ const Products = (props) => {
         return (
           <div className={classes.item} key={index}>
             <p>Album {index + 1}</p>
-            <Link>
-              <img src={item.imageUrl} alt="productImage" />
+            <Link to={`/store/${index}`} >
+              <img src={item.imageUrl}  alt="productImage" />
             </Link>
 
             <p>{`₹${item.price}`}</p>
@@ -81,7 +81,7 @@ const Products = (props) => {
       })}
     </div>
     <div>
-      <Footer />
+     
     </div>
     </div>
   );

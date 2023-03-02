@@ -5,7 +5,7 @@ import './PageStyle.css'
 const Home = () => {
     return (
       <div>
-        <Header  className='tour-row header'/>
+        
         <section className="content-section container">
         
             <h2 className="section-header">TOURS</h2>
@@ -49,7 +49,7 @@ const Home = () => {
             </div>
             
         </section>
-        <Footer className='footer' />
+       
       </div>
     );
   };

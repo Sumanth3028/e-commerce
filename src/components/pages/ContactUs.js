@@ -12,6 +12,7 @@ const ContactUs = (props) => {
             email:emailInputRef.current.value,
             pwd:pwdInputRef.current.value
         }
+        console.log(obj)
         fetch("https://ecommerce-416a9-default-rtdb.firebaseio.com//users.json",{
            method:'POST',
            body:JSON.stringify(obj),
@@ -30,15 +31,15 @@ const ContactUs = (props) => {
       <Form style={{alignItems:'center',marginTop:'10rem'}} onSubmit={submitHandler}>
       <FormGroup  controlId="formBasicUserName">
           <FormLabel style={{fontSize:'3rem',textAlign:'left',marginLeft:'3rem'}}>Username</FormLabel>
-          <FormControl type="text" placeholder="enter username" style={{width:'80%',marginLeft:'3rem',padding:'1rem'}} ref={nameInputRef}></FormControl>
+          <FormControl type="text" placeholder="enter username" style={{width:'80%',marginLeft:'3rem',padding:'1rem'}} ref={nameInputRef} required></FormControl>
         </FormGroup>
         <FormGroup  controlId="formBasicEmail">
           <FormLabel style={{fontSize:'3rem',textAlign:'left',marginLeft:'3rem'}}>Email Id</FormLabel>
-          <FormControl type="email" placeholder="enter email" style={{width:'80%',marginLeft:'3rem',padding:'1rem'}} ref={emailInputRef}></FormControl>
+          <FormControl type="email" placeholder="enter email" style={{width:'80%',marginLeft:'3rem',padding:'1rem'}} ref={emailInputRef} required></FormControl>
         </FormGroup>
         <FormGroup  controlId="formBasicPassword">
           <FormLabel style={{fontSize:'3rem',textAlign:'left',marginLeft:'3rem'}}>Password</FormLabel>
-          <FormControl type="password" placeholder="password" style={{width:'80%',marginLeft:'3rem',padding:'1rem'}} ref={pwdInputRef}></FormControl>
+          <FormControl type="password" placeholder="password" style={{width:'80%',marginLeft:'3rem',padding:'1rem'}} ref={pwdInputRef} required></FormControl>
         </FormGroup>
        <Button variant="primary" type="submit" style={{marginTop:'2rem',marginLeft:'13rem',width:"40%",padding:'1rem'}}>Submit</Button>
       </Form>

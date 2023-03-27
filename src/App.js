@@ -12,6 +12,7 @@ import ProductDetail from "./components/pages/ProductDetail";
 import ProductDetail2 from "./components/pages/ProductDetail2";
 import ProductDetail3 from "./components/pages/ProductDetail3";
 import ProductDetail4 from "./components/pages/ProductDetail4";
+import Login from "./components/pages/Auth/Login";
 
 
 
@@ -34,10 +35,11 @@ const App = () => {
        <Route path="/home" element={<Home />} />
        <Route path="/about" element={<About />} />
       <Route path="/store" element={<Products openCart={openCart} onOpenCart={showCartHandler} onCloseCart={hideCartHandler} />}/>
-      <Route path="/store/1" element={<ProductDetail/>} />
-      <Route path="/store/0" element={<ProductDetail2/>} />
+      <Route path="/store/0" element={<ProductDetail/>} />
+      <Route path="/store/1" element={<ProductDetail2/>} />
       <Route path="/store/2" element={<ProductDetail3/>} />
       <Route path="/store/3" element={<ProductDetail4/>} />
+      <Route path="/login"    element={<Login />} />
       <Route path="/contact" element={<ContactUs  />} />
         
         

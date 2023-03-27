@@ -3,7 +3,7 @@ import Colors from '../../assets/colors.png'
 const ProductDetail2 = () => {
     const params = useParams();
   
-    console.log(params.productId);
+    
     return (
       <div className="text-center mx-auto" style={{marginTop:'1rem'}}>
         <h1>Product Detail</h1>

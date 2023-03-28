@@ -6,8 +6,8 @@ import { Navigate,useNavigate } from "react-router-dom";
 const Login=(props)=>{
 
     const ctx=useContext(CartContext)
-    const emailInputRef=useRef('');
-    const pwdInputRef=useRef('')
+    const emailInputRef=useRef();
+    const pwdInputRef=useRef()
     const navigate=useNavigate()
 
     const submitHandler=(event)=>{
@@ -39,6 +39,9 @@ const Login=(props)=>{
         })
         .then((data) => {
           ctx.login(data.idToken);
+          // ctx.login(data.email)
+          console.log(data.email)
+           //localStorage.setItem("email" ,JSON.stringify(data.email))
           navigate('/store')
           
         })

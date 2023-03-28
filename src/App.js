@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState,useContext} from "react";
 import "./App.css";
 import Header from "./components/Layout/Header";
 import Products from "./components/Products/Products";
@@ -13,12 +13,15 @@ import ProductDetail2 from "./components/pages/ProductDetail2";
 import ProductDetail3 from "./components/pages/ProductDetail3";
 import ProductDetail4 from "./components/pages/ProductDetail4";
 import Login from "./components/pages/Auth/Login";
-
+import CartContext from "./store/cart-context";
+import { Navigate } from "react-router-dom";
 
 
 const App = () => {
    
    const [openCart, setShowCart] = useState(false);
+   const ctx=useContext(CartContext)
+   const isLoggedIn=ctx.isLoggedIn
    const showCartHandler=()=>{
     setShowCart(true)
    }
@@ -32,14 +35,18 @@ const App = () => {
     <div>
       <Header onOpenCart={showCartHandler} />
        <Routes>
+       <Route path="/" element={<Home />} />
        <Route path="/home" element={<Home />} />
        <Route path="/about" element={<About />} />
-      <Route path="/store" element={<Products openCart={openCart} onOpenCart={showCartHandler} onCloseCart={hideCartHandler} />}/>
+       {isLoggedIn &&<Route path="/store" element={<Products openCart={openCart} onOpenCart={showCartHandler} onCloseCart={hideCartHandler} />}/>}
+       {!isLoggedIn && <Route path='/store'  element={<Login/>}/>}
       <Route path="/store/0" element={<ProductDetail/>} />
       <Route path="/store/1" element={<ProductDetail2/>} />
       <Route path="/store/2" element={<ProductDetail3/>} />
       <Route path="/store/3" element={<ProductDetail4/>} />
-      <Route path="/login"    element={<Login />} />
+     
+          {!isLoggedIn && <Route path="/login" element={<Login />} /> }
+
       <Route path="/contact" element={<ContactUs  />} />
         
         

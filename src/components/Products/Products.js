@@ -14,7 +14,7 @@ const Products = (props) => {
 
       price: 100,
 
-      id: 1,
+      id: 'i1',
 
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
@@ -25,7 +25,7 @@ const Products = (props) => {
 
       price: 50,
 
-      id: 2,
+      id: 'i2',
 
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
@@ -36,7 +36,7 @@ const Products = (props) => {
 
       price: 70,
 
-      id: 3,
+      id: 'i3',
 
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
@@ -47,7 +47,7 @@ const Products = (props) => {
 
       price: 100,
 
-      id: 4,
+      id: 'i4',
 
       imageUrl:
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",

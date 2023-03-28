@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import Blue from '../../assets/Blue.png'
+import Colors from '../../assets/colors.png'
 const ProductDetail = () => {
     const params = useParams();
   
@@ -10,7 +10,7 @@ const ProductDetail = () => {
         <ul>
           <li >
             <img 
-              src={Blue}
+              src={Colors}
               alt="product"
             />
   
